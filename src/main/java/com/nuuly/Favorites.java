@@ -1,7 +1,7 @@
 package com.nuuly;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 /**
  * This table tracks the item (SKU) being purchased and the number of times that item was purchased.

@@ -1,4 +1,6 @@
-FROM openjdk:11-jdk
+FROM debian:bookworm-slim
+RUN apt-get update && \
+        apt-get install --assume-yes --no-install-recommends openjdk-17-jdk-headless
 COPY gradle /src/gradle
 COPY *.gradle gradlew  /src/
 COPY src /src/src

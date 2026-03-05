@@ -1,7 +1,7 @@
 package com.nuuly;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 /**
  * This table tracks the item (SKU) currently in inventory and the number of items in inventory.
