@@ -1,6 +1,7 @@
 package com.nuuly;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,16 +18,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProducerService {
-    private final KafkaProducerService<String> kafkaProducerService;
+
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     final String INVENTORY_TOPIC = "inventory_updates";
 
     @Autowired
-    public ProducerService(KafkaProducerService<String> kafkaProducerService) {
-        this.kafkaProducerService = kafkaProducerService;
+    public ProducerService(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendInventoryMessage(String key, String message) throws Exception {
-        kafkaProducerService.sendMessage(INVENTORY_TOPIC, key, message);
+    public void sendInventoryMessage(String key, String message) {
+        kafkaTemplate.send(INVENTORY_TOPIC, key, message);
     }
 }

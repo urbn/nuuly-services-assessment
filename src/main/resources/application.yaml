@@ -11,6 +11,18 @@ spring:
     bootstrap-servers: kafka:9092
     consumer:
       group-id: inventory-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
     producer:
       acks: all
       retries: 3
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+logging:
+  level:
+    org.apache.kafka.common.config: WARN
+    org.apache.kafka.clients: WARN
+    org.apache.kafka.coordinator: WARN
+    kafka: WARN
