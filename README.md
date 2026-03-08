@@ -38,13 +38,12 @@ For more information on the example code provided, view the JavaDocs with:
 * docker-compose
   * PostgreSQL
     * A database to track inventory
-  * Kafka & ZooKeeper
+  * Apache Kafka (KRaft mode, no ZooKeeper required)
     * A message broker to handle publishing and subscribing to topics
-    * The configurations for Kafka are handled with the existing application code
-  * Java gradle application
-    * Built with SpringBoot, this is the API server to handle HTTP requests
-* Kafka Producer/Consumer Template
-  * In `ProducerService.java` & `Consumer.java` you can utilize those helper functions to send a message and consume a topic
+  * Java Gradle application
+    * Built with Spring Boot 4.0.3 and Java 17, this is the API server to handle HTTP requests
+* Kafka Producer/Consumer
+  *  In `ProducerService.java` & `Consumer.java` you can utilize those helper functions to send a message and consume a topic
 * JPA Databases
   * Two database tables called `Inventory` and `Favorites`
   * These database tables that are auto-created at application start
